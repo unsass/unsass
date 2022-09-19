@@ -1,0 +1,68 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as direction;
+
+@include describe("direction") {
+    @include describe("mixins") {
+        @include describe("left-to-right") {
+            @include it("Should return left-to-right declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            padding-left: 12px;
+
+                            @include direction.ltr() {
+                                padding-left: 0;
+                                padding-right: 12px;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            padding-left: 12px;
+                        }
+
+                        [dir=ltr] .test,
+                        .test[dir=ltr] {
+                            padding-left: 0;
+                            padding-right: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        @include describe("right-to-left") {
+            @include it("Should return right-to-left declaration.") {
+                @include assert {
+                    @include output(false) {
+                        .test {
+                            padding-left: 12px;
+
+                            @include direction.rtl() {
+                                padding-left: 0;
+                                padding-right: 12px;
+                            }
+                        }
+                    }
+
+                    @include expect(false) {
+                        .test {
+                            padding-left: 12px;
+                        }
+
+                        [dir=rtl] .test,
+                        .test[dir=rtl] {
+                            padding-left: 0;
+                            padding-right: 12px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
