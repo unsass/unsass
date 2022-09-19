@@ -1,0 +1,41 @@
+// ============================================================================================= //
+//                                            MIXINS                                             //
+// ============================================================================================= //
+
+@use "sass:list";
+@use "sass:meta";
+@use "sass:selector";
+
+///
+/// left-to-right
+///
+@mixin ltr {
+    $dir: "[dir=ltr]";
+    $selectors: list.join(
+            selector.nest($dir, &),
+            selector.append(&, $dir)
+    );
+
+    @at-root {
+        #{$selectors} {
+            @content;
+        }
+    }
+}
+
+///
+/// right-to-left
+///
+@mixin rtl {
+    $dir: "[dir=rtl]";
+    $selectors: list.join(
+            selector.nest($dir, &),
+            selector.append(&, $dir)
+    );
+
+    @at-root {
+        #{$selectors} {
+            @content;
+        }
+    }
+}

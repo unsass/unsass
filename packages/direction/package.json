@@ -2,24 +2,21 @@
     "name": "@unsass/direction",
     "version": "0.0.0",
     "description": "Manage content direction for languages left-to-right or right-to-left rules.",
-    "main": "index.scss",
     "engines": {
         "node": ">=14.0.0",
         "npm": ">=8.0.0"
     },
+    "sass": "index.scss",
     "dependencies": {
         "sass": "^1.52.3"
     },
-    "files": [
-        "*.scss"
-    ],
     "keywords": [
         "sass",
         "direction",
-        "left-to-right",
-        "right-to-left",
         "ltr",
         "rtl",
+        "left-to-right",
+        "right-to-left",
         "unsass",
         "front-end"
     ],
@@ -32,5 +29,10 @@
         "type": "git",
         "url": "git+https://github.com/unsass/unsass.git",
         "directory": "packages/direction"
-    }
+    },
+    "files": [
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ]
 }
