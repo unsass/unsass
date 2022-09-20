@@ -10,3 +10,10 @@
 @function is-number($value) {
     @return meta.type-of($value) == "number";
 }
+
+///
+/// String.
+///
+@function is-string($value) {
+    @return meta.type-of($value) == "string";
+}

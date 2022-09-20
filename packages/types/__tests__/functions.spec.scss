@@ -16,5 +16,15 @@
                 @include assert-equal(types.is-number("1"), false);
             }
         }
+
+        @include describe("is-string()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-string("a"), true);
+            }
+
+            @include it("Should return true without quotes.") {
+                @include assert-equal(types.is-string(a), true);
+            }
+        }
     }
 }
