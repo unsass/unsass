@@ -81,5 +81,15 @@
                 @include assert-equal(types.is-boolean(false), true);
             }
         }
+
+        @include describe("is-null()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-null(null), true);
+            }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-boolean(1), false);
+            }
+        }
     }
 }

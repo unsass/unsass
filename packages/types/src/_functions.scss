@@ -45,3 +45,10 @@
 @function is-boolean($value) {
     @return meta.type-of($value) == "bool";
 }
+
+///
+/// Null.
+///
+@function is-null($value) {
+    @return meta.type-of($value) == "null";
+}
