@@ -1,0 +1,20 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as types;
+
+@include describe("types") {
+    @include describe("functions") {
+        @include describe("is-number()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-number(1), true);
+            }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-number("1"), false);
+            }
+        }
+    }
+}
