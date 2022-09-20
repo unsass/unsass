@@ -1,0 +1,34 @@
+{
+    "name": "@unsass/types",
+    "version": "0.0.0",
+    "description": "Sass functions to determine value type.",
+    "engines": {
+        "node": ">=14.0.0",
+        "npm": ">=8.0.0"
+    },
+    "sass": "index.scss",
+    "dependencies": {
+        "sass": "^1.52.3"
+    },
+    "keywords": [
+        "sass",
+        "types",
+        "unsass",
+        "front-end"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/unsass/unsass/packages/types#readme",
+    "bugs": {
+        "url": "https://github.com/unsass/unsass/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/unsass/unsass.git",
+        "directory": "packages/types"
+    },
+    "files": [
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ]
+}
