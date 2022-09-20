@@ -24,3 +24,10 @@
 @function is-color($value) {
     @return meta.type-of($value) == "color";
 }
+
+///
+/// List.
+///
+@function is-list($value) {
+    @return meta.type-of($value) == "list";
+}

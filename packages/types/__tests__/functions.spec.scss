@@ -29,7 +29,7 @@
 
         @include describe("is-color()") {
             @include it("Should return true.") {
-                @include assert-equal(types.is-color(#008B8B), true);
+                @include assert-equal(types.is-color(#008b8b), true);
             }
 
             @include it("Should return true with named color.") {
@@ -38,6 +38,25 @@
 
             @include it("Should return false.") {
                 @include assert-equal(types.is-color("#ff0000"), false);
+            }
+        }
+
+        @include describe("is-list()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-list(()), true);
+            }
+
+            @include it("Should return false with one value.") {
+                @include assert-equal(types.is-list((
+                    "value-1"
+                )), false);
+            }
+
+            @include it("Should return true with two values") {
+                @include assert-equal(types.is-list((
+                    "value-1",
+                    "value-2"
+                )), true);
             }
         }
     }
