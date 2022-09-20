@@ -31,3 +31,10 @@
 @function is-list($value) {
     @return meta.type-of($value) == "list";
 }
+
+///
+/// Map.
+///
+@function is-map($value) {
+    @return meta.type-of($value) == "map";
+}

@@ -59,5 +59,17 @@
                 )), true);
             }
         }
+
+        @include describe("is-map()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-map((
+                    "key": "value"
+                )), true);
+            }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-map(()), false);
+            }
+        }
     }
 }
