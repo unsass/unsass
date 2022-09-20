@@ -71,5 +71,15 @@
                 @include assert-equal(types.is-map(()), false);
             }
         }
+
+        @include describe("is-boolean()") {
+            @include it("Should return true when true.") {
+                @include assert-equal(types.is-boolean(true), true);
+            }
+
+            @include it("Should return true when false.") {
+                @include assert-equal(types.is-boolean(false), true);
+            }
+        }
     }
 }

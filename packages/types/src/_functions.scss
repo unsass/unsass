@@ -38,3 +38,10 @@
 @function is-map($value) {
     @return meta.type-of($value) == "map";
 }
+
+///
+/// Boolean.
+///
+@function is-boolean($value) {
+    @return meta.type-of($value) == "bool";
+}
