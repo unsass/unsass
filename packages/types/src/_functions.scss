@@ -17,3 +17,10 @@
 @function is-string($value) {
     @return meta.type-of($value) == "string";
 }
+
+///
+/// Color.
+///
+@function is-color($value) {
+    @return meta.type-of($value) == "color";
+}

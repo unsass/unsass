@@ -26,5 +26,19 @@
                 @include assert-equal(types.is-string(a), true);
             }
         }
+
+        @include describe("is-color()") {
+            @include it("Should return true.") {
+                @include assert-equal(types.is-color(#008B8B), true);
+            }
+
+            @include it("Should return true with named color.") {
+                @include assert-equal(types.is-color(darkcyan), true);
+            }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-color("#ff0000"), false);
+            }
+        }
     }
 }
