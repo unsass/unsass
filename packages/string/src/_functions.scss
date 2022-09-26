@@ -1,0 +1,18 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:string";
+
+///
+/// Replace.
+///
+@function replace($string, $query, $replace: "") {
+    $index: string.index($string, $query);
+
+    @if $index {
+        @return string.slice($string, 1, $index - 1) + $replace + replace(string.slice($string, $index + string.length($query)), $query, $replace);
+    }
+
+    @return $string;
+}

@@ -1,0 +1,33 @@
+{
+    "name": "@unsass/string",
+    "version": "0.0.0",
+    "description": "Sass functions to manage string.",
+    "sass": "index.scss",
+    "dependencies": {
+        "sass": "^1.52.3"
+    },
+    "keywords": [
+        "sass",
+        "types",
+        "unsass",
+        "front-end"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/unsass/unsass/packages/string#readme",
+    "bugs": {
+        "url": "https://github.com/unsass/unsass/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/unsass/unsass.git",
+        "directory": "packages/string"
+    },
+    "files": [
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
+}

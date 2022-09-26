@@ -1,0 +1,18 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as string;
+
+@include describe("string") {
+    @include describe("replace()") {
+        @include it("Should return replaced string.") {
+            @include assert-equal(string.replace("The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?", "dog", "monkey"), "The quick brown fox jumps over the lazy monkey. If the monkey reacted, was it really lazy?");
+        }
+
+        @include it("Should return removed string.") {
+            @include assert-equal(string.replace("The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?", "dog"), "The quick brown fox jumps over the lazy . If the  reacted, was it really lazy?");
+        }
+    }
+}
