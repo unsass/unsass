@@ -1,5 +1,4 @@
 {
-    "private": true,
     "name": "@unsass/types",
     "version": "0.0.0",
     "description": "Sass functions to determine value type.",
@@ -31,5 +30,8 @@
         "src/**/*",
         "*.scss",
         "CHANGELOG.md"
-    ]
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
 }
