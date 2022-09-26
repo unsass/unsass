@@ -1,6 +1,6 @@
 {
     "name": "@unsass/types",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Sass functions to determine value type.",
     "engines": {
         "node": ">=14.0.0",
