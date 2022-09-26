@@ -1,0 +1,20 @@
+{
+    "version": "independent",
+    "useWorkspaces": true,
+    "useNx": true,
+    "command": {
+        "publish": {
+            "message": "chore(release): publish",
+            "ignoreChanges": [
+                "**/*.md",
+                "**/.github/*"
+            ]
+        },
+        "version": {
+            "conventionalCommits": true,
+            "changelogPreset": {
+                "name": "conventionalcommits"
+            }
+        }
+    }
+}
