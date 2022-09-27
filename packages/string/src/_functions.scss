@@ -2,7 +2,9 @@
 //                                           FUNCTIONS                                           //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "sass:string";
+@use "@unsass/types" as type;
 
 ///
 /// Replace.
@@ -15,4 +17,26 @@
     }
 
     @return $string;
+}
+
+///
+/// To number.
+///
+@function to-number($value) {
+    $numbers: ("0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9);
+    $result: 0;
+
+    @for $i from 1 through string.length($value) {
+        $character: string.slice($value, $i, $i);
+        $result: $result * 10 + map.get($numbers, $character);
+    }
+
+    @return $result;
+}
+
+///
+/// From number.
+///
+@function from-number($value) {
+    @return #{$value};
 }

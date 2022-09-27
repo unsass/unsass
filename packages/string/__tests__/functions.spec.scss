@@ -15,4 +15,24 @@
             @include assert-equal(string.replace("The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?", "dog"), "The quick brown fox jumps over the lazy . If the  reacted, was it really lazy?");
         }
     }
+
+    @include describe("to-number()") {
+        @include it("Should return a number from string.") {
+            @include assert-equal(string.to-number("6"), 6);
+        }
+
+        @include it("Should return a two digit number from string.") {
+            @include assert-equal(string.to-number("42"), 42);
+        }
+
+        @include it("Should return a big number from string.") {
+            @include assert-equal(string.to-number("1997"), 1997);
+        }
+    }
+
+    @include describe("from-number()") {
+        @include it("Should return a string from number.") {
+            @include assert-equal(string.from-number(6), "6");
+        }
+    }
 }
