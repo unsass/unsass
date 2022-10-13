@@ -2,10 +2,6 @@
     "name": "@unsass/types",
     "version": "1.0.0",
     "description": "Sass functions to determine value type.",
-    "engines": {
-        "node": ">=14.0.0",
-        "npm": ">=8.0.0"
-    },
     "sass": "index.scss",
     "dependencies": {
         "sass": "^1.52.3"
