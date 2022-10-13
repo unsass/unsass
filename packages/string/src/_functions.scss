@@ -40,3 +40,32 @@
 @function from-number($value) {
     @return #{$value};
 }
+
+///
+/// Trim start.
+///
+@function trim-start($string, $target: " ") {
+    @if string.slice($string, 1, string.length($target)) == $target {
+        $string: string.slice($string, string.length($target) + 1);
+    }
+
+    @return $string;
+}
+
+///
+/// Trim end.
+///
+@function trim-end($string, $target: " ") {
+    @if string.slice($string, -1 * string.length($target)) == $target {
+        $string: string.slice($string, 1, -1 * string.length($target) - 1);
+    }
+
+    @return $string;
+}
+
+///
+/// Trim.
+///
+@function trim($string, $start: " ", $end: $start) {
+    @return trim-start(trim-end($string, $end), $start);
+}

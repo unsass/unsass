@@ -35,4 +35,46 @@
             @include assert-equal(string.from-number(6), "6");
         }
     }
+
+    @include describe("trim-start()") {
+        @include describe("whitespace") {
+            @include it("Should return a string without start whitespace.") {
+                @include assert-equal(string.trim-start(" Sentence. "), "Sentence. ");
+            }
+        }
+
+        @include describe("custom") {
+            @include it("Should return a string without custom start value.") {
+                @include assert-equal(string.trim-start("var(--foo, darkcyan)", "var("), "--foo, darkcyan)");
+            }
+        }
+    }
+
+    @include describe("trim-end()") {
+        @include describe("whitespace") {
+            @include it("Should return a string without end whitespace.") {
+                @include assert-equal(string.trim-end(" Sentence. "), " Sentence.");
+            }
+        }
+
+        @include describe("custom") {
+            @include it("Should return a string without custom end value.") {
+                @include assert-equal(string.trim-end("var(--foo, darkcyan)", ")"), "var(--foo, darkcyan");
+            }
+        }
+    }
+
+    @include describe("trim()") {
+        @include describe("whitespace") {
+            @include it("Should return a string without whitespace.") {
+                @include assert-equal(string.trim(" Sentence. "), "Sentence.");
+            }
+        }
+
+        @include describe("custom") {
+            @include it("Should return a string without whitespace.") {
+                @include assert-equal(string.trim("var(--foo, darkcyan)", "var(", ")"), "--foo, darkcyan");
+            }
+        }
+    }
 }
