@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/unsass/unsass/compare/@unsass/string@1.1.0...@unsass/string@1.2.0) (2022-10-13)
+
+
+### Features
+
+* **string:** forward `sass:string` ([89d911c](https://github.com/unsass/unsass/commit/89d911cc2d7e5bbdb165204a7983abe08b085a8c))
+
+
+
+
 ## [1.1.0](https://github.com/unsass/unsass/compare/@unsass/string@1.0.0...@unsass/string@1.1.0) (2022-10-13)
 
 
