@@ -77,4 +77,32 @@
             }
         }
     }
+
+    @include describe("starts-with()") {
+        @include describe("true") {
+            @include it("Should return true.") {
+                @include assert-equal(string.starts-with("This is a sentence.", "This"), true);
+            }
+        }
+
+        @include describe("false") {
+            @include it("Should return false.") {
+                @include assert-equal(string.starts-with("This is a sentence.", "That"), false);
+            }
+        }
+    }
+
+    @include describe("ends-with()") {
+        @include describe("true") {
+            @include it("Should return true.") {
+                @include assert-equal(string.ends-with("This is a sentence.", "ence."), true);
+            }
+        }
+
+        @include describe("false") {
+            @include it("Should return false.") {
+                @include assert-equal(string.ends-with("This is a sentence.", "ence"), false);
+            }
+        }
+    }
 }

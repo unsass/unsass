@@ -42,6 +42,28 @@
 }
 
 ///
+/// Start with.
+///
+@function starts-with($string, $substring) {
+    @if string.index($string, $substring) {
+        @return true;
+    }
+
+    @return false;
+}
+
+///
+/// End with.
+///
+@function ends-with($string, $substring) {
+    @if (string.slice($string, (string.length($string) - string.length($substring) + 1)) == $substring) {
+        @return true;
+    }
+
+    @return false;
+}
+
+///
 /// Trim start.
 ///
 @function trim-start($string, $target: " ") {
