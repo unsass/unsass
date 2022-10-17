@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/unsass/unsass/compare/@unsass/string@1.2.0...@unsass/string@1.3.0) (2022-10-17)
+
+
+### Features
+
+* **string:** add `starts-with` and `ends-with` functions ([4327f64](https://github.com/unsass/unsass/commit/4327f643d16df22a0fa69155814f79dbc702cd4a))
+
+
+
+
 ## [1.2.0](https://github.com/unsass/unsass/compare/@unsass/string@1.1.0...@unsass/string@1.2.0) (2022-10-13)
 
 
