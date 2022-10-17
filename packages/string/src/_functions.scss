@@ -42,7 +42,7 @@
 }
 
 ///
-/// Start with.
+/// Starts with.
 ///
 @function starts-with($string, $substring) {
     @if string.index($string, $substring) {
@@ -53,7 +53,7 @@
 }
 
 ///
-/// End with.
+/// Ends with.
 ///
 @function ends-with($string, $substring) {
     @if (string.slice($string, (string.length($string) - string.length($substring) + 1)) == $substring) {
