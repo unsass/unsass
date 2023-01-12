@@ -6,8 +6,8 @@
         "release": "lerna publish"
     },
     "engines": {
-        "node": ">=14.0.0",
-        "npm": ">=8.0.0"
+        "node": ">=16.0.0",
+        "npm": ">=9.0.0"
     },
     "devDependencies": {
         "@commitlint/cli": "^17.4.2",
