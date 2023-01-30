@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/unsass/unsass/compare/@unsass/string@1.3.0...@unsass/string@1.4.0) (2023-01-30)
+
+
+### Features
+
+* **string:** add `combine` function ([e898926](https://github.com/unsass/unsass/commit/e898926fe2d3c6382f7d3f2ea29d5ee1b4aae50b))
+
+
+
+
 ## [1.3.0](https://github.com/unsass/unsass/compare/@unsass/string@1.2.0...@unsass/string@1.3.0) (2022-10-17)
 
 
