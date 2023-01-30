@@ -91,3 +91,20 @@
 @function trim($string, $start: " ", $end: $start) {
     @return trim-start(trim-end($string, $end), $start);
 }
+
+///
+/// Combine.
+///
+@function combine($values...) {
+    $token: '';
+
+    @each $value in $values {
+        @if $token == '' {
+            $token: $value;
+        } @else {
+            $token: #{$token}-#{$value};
+        }
+    }
+
+    @return $token;
+}

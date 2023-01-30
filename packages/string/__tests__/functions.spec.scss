@@ -105,4 +105,10 @@
             }
         }
     }
+
+    @include describe("combine()") {
+        @include it("Should return true.") {
+            @include assert-equal(string.combine("button", "label"), "button-label");
+        }
+    }
 }
