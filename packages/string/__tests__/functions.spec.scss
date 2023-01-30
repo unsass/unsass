@@ -107,7 +107,7 @@
     }
 
     @include describe("combine()") {
-        @include it("Should return true.") {
+        @include it("Should return combined string.") {
             @include assert-equal(string.combine("button", "label"), "button-label");
         }
     }
