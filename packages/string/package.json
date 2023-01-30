@@ -1,6 +1,6 @@
 {
     "name": "@unsass/string",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "Sass functions to manage string.",
     "sass": "index.scss",
     "dependencies": {

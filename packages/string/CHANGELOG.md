@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/unsass/unsass/compare/@unsass/string@1.4.0...@unsass/string@1.4.1) (2023-01-30)
+
+
+### Bug Fixes
+
+* **string:** `null` on first value ([b2610b2](https://github.com/unsass/unsass/commit/b2610b21dcf2e23d7da6cd1bb314e3efa63d88db))
+
+
+
 ## [1.4.0](https://github.com/unsass/unsass/compare/@unsass/string@1.3.0...@unsass/string@1.4.0) (2023-01-30)
 
 
