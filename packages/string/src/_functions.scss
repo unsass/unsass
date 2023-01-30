@@ -96,13 +96,15 @@
 /// Combine.
 ///
 @function combine($values...) {
-    $token: '';
+    $token: "";
 
     @each $value in $values {
-        @if $token == '' {
-            $token: $value;
-        } @else {
-            $token: #{$token}-#{$value};
+        @if $value {
+            @if $token == "" {
+                $token: $value;
+            } @else {
+                $token: #{$token}-#{$value};
+            }
         }
     }
 
