@@ -25,13 +25,14 @@ $string: string.replace("The quick brown fox jumps over the lazy dog. If the dog
 
 ## API
 
-| Function                             | Description                                 |
-|--------------------------------------|---------------------------------------------|
-| `replace($string, $query, $replace)` | Replace character on string.                |
-| `to-number($value)`                  | Transform string to number. Ex: "10" to 10. |
-| `from-number($value)`                | Transform number to string. Ex: 10 to "10". |
-| `starts-with($string, $substring)`   | Find if string starts with substring.       |
-| `ends-with($string, $substring)`     | Find if string ends with substring.         |
-| `trim-start($string, $target)`       | Delete character on string start.           |
-| `trim-end($string, $target)`         | Delete character on string end.             |
-| `trim($string, $start, $end)`        | Delete character on string any part.        |
+| Function                             | Description                                                        |
+|--------------------------------------|--------------------------------------------------------------------|
+| `replace($string, $query, $replace)` | Replace character on string.                                       |
+| `to-number($value)`                  | Transform string to number. Ex: "10" to 10.                        |
+| `from-number($value)`                | Transform number to string. Ex: 10 to "10".                        |
+| `starts-with($string, $substring)`   | Find if string starts with substring.                              |
+| `ends-with($string, $substring)`     | Find if string ends with substring.                                |
+| `trim-start($string, $target)`       | Delete character on string start.                                  |
+| `trim-end($string, $target)`         | Delete character on string end.                                    |
+| `trim($string, $start, $end)`        | Delete character on string any part.                               |
+| `combine($values...)`                | Combine strings. Ex `combine("button", "label")` -> `button-label` |
