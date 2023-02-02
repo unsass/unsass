@@ -6,7 +6,8 @@
             "message": "chore(release): publish",
             "ignoreChanges": [
                 "**/*.md",
-                "**/.github/*"
+                "**/.github/*",
+                "**/__tests__/*"
             ]
         },
         "version": {
