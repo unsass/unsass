@@ -1,7 +1,6 @@
 {
     "version": "independent",
     "useWorkspaces": true,
-    "useNx": true,
     "command": {
         "publish": {
             "message": "chore(release): publish",
