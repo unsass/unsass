@@ -1,1 +1,3 @@
-# unsass
+# Unsass
+
+The Unsass monorepo.
