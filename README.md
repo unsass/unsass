@@ -1,3 +1,3 @@
 # Unsass
 
-The Unsass monorepo.
+The Unsass tools monorepo.
