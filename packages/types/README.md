@@ -1,4 +1,4 @@
-# Types
+# `@unsass/types`
 
 [![Version](https://flat.badgen.net/npm/v/@unsass/types)](https://www.npmjs.com/package/@unsass/types)
 [![Downloads](https://flat.badgen.net/npm/dt/@unsass/types)](https://www.npmjs.com/package/@unsass/types)
