@@ -5,7 +5,7 @@
     "sass": "index.scss",
     "dependencies": {
         "@unsass/types": "^1.0.1",
-        "sass": "^1.52.3"
+        "sass": "^1.58.3"
     },
     "keywords": [
         "sass",
