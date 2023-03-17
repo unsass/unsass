@@ -1,0 +1,34 @@
+// ============================================================================================= //
+//                                             TEST                                              //
+// ============================================================================================= //
+
+@use "true" as *;
+@use "../index" as var;
+
+@include describe("var") {
+    @include describe("functions") {
+        @include describe("create()") {
+            @include it("Should return `var()` value.") {
+                @include assert-equal(var.create("primary", darkcyan), var(--primary, darkcyan));
+            }
+        }
+
+        @include describe("create-name()") {
+            @include it("Should return `var()` name with `--` prefix.") {
+                @include assert-equal(var.create-name("primary"), --primary);
+            }
+        }
+
+        @include describe("name()") {
+            @include it("Should return `var()` name value.") {
+                @include assert-equal(var.name(var(--primary, darkcyan)), "--primary");
+            }
+        }
+
+        @include describe("fallback()") {
+            @include it("Should return `var()` fallback value.") {
+                @include assert-equal(var.fallback(var(--primary, darkcyan)), "darkcyan");
+            }
+        }
+    }
+}

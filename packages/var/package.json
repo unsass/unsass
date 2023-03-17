@@ -1,0 +1,34 @@
+{
+    "name": "@unsass/var",
+    "version": "0.0.0",
+    "description": "Sass functions to manage the `var()` CSS function.",
+    "sass": "index.scss",
+    "dependencies": {
+        "@unsass/string": "^1.4.1",
+        "sass": "^1.58.3"
+    },
+    "keywords": [
+        "sass",
+        "var",
+        "unsass",
+        "front-end"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/unsass/unsass/packages/var#readme",
+    "bugs": {
+        "url": "https://github.com/unsass/unsass/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/unsass/unsass.git",
+        "directory": "packages/var"
+    },
+    "files": [
+        "src/**/*",
+        "*.scss",
+        "CHANGELOG.md"
+    ],
+    "publishConfig": {
+        "access": "public"
+    }
+}

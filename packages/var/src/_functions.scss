@@ -1,0 +1,107 @@
+// ============================================================================================= //
+//                                           FUNCTIONS                                           //
+// ============================================================================================= //
+
+@use "sass:map";
+@use "@unsass/string";
+
+///
+/// Create a `var()` CSS function.
+///
+/// @example - scss
+///   .foo {
+///     color: var.create("primary-color", darkcyan);
+///   }
+///
+/// @example - css
+///   .foo {
+///     color: var(--primary-color, darkcyan);
+///   }
+///
+/// @param {String} $name - The variable name.
+/// @param {String} $fallback - The variable fallback.
+///
+/// @return {String} The `var()`  CSS function.
+///
+@function create($name, $fallback: null) {
+    $name: create-name($name);
+
+    @return var(#{$name}, #{$fallback});
+}
+
+///
+/// Create name.
+///
+/// @example - scss
+///   $theme: (
+///     "text-color": darkcyan
+///   );
+///
+///   $theme: create-theme-vars($theme, "button"); -> `("text-color": var(--mg-button-text-color, darkcyan))`
+///
+///   .foo {
+///     @include emit-theme-vars($theme);
+///   }
+///
+/// @example - css
+///   .foo {
+///     --mg-button-text-color: darkcyan;
+///   }
+///
+/// @param {String} $name - The variable name value.
+///
+/// @return {String} The formatted name.
+///
+@function create-name($name) {
+    @if string.slice($name, 1, 2) != "--" {
+        $name: --#{$name};
+    }
+
+    @return $name
+}
+
+///
+/// Get name.
+///
+/// @param {String} $var - The variable value.
+///
+/// @return {String} The `var()` name.
+///
+@function name($var) {
+    $var: parse($var);
+
+    @return map.get($var, "name");
+}
+
+///
+/// Get fallback.
+///
+/// @param {String} $var - The variable value.
+///
+/// @return {String} The `var()` fallback.
+///
+@function fallback($var) {
+    $var: parse($var);
+
+    @return map.get($var, "fallback");
+}
+
+///
+/// Parsing `var()` CSS function.
+///
+/// @param {String} $var - The variable value.
+///
+/// @return {Map} A map with `name` and `fallback` keys.
+///
+@function parse($var) {
+    $var: string.trim($var, "var(", ")");
+    $comma: string.index($var, ",");
+
+    $name: string.slice($var, 1, $comma - 1);
+    $fallback: string.slice($var, $comma + 2);
+
+    @return (
+        "name": $name,
+        "fallback": $fallback
+    );
+}
