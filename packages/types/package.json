@@ -1,6 +1,6 @@
 {
     "name": "@unsass/types",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Sass functions to determine value type.",
     "sass": "index.scss",
     "dependencies": {
