@@ -32,6 +32,12 @@
         "packages/*"
     ],
     "release-it": {
+        "git": {
+            "commitMessage": "chore: release v${version}"
+        },
+        "github": {
+            "release": true
+        },
         "plugins": {
             "@release-it-plugins/workspaces": {
                 "publish": false
