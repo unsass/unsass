@@ -5,29 +5,40 @@
 @use "true" as *;
 @use "../index" as var;
 
+$var: var(--primary, darkcyan);
+
 @include describe("var") {
     @include describe("functions") {
         @include describe("create()") {
-            @include it("Should return `var()` value.") {
-                @include assert-equal(var.create("primary", darkcyan), var(--primary, darkcyan));
+            @include it("Should return variable value.") {
+                @include assert-equal(var.create("primary", darkcyan), $var);
             }
         }
 
         @include describe("create-name()") {
-            @include it("Should return `var()` name with `--` prefix.") {
-                @include assert-equal(var.create-name("primary"), --primary);
+            @include it("Should return variable name with `--` prefix.") {
+                @include assert-equal(var.create-name("primary"), "--primary");
             }
         }
 
         @include describe("name()") {
-            @include it("Should return `var()` name value.") {
-                @include assert-equal(var.name(var(--primary, darkcyan)), "--primary");
+            @include it("Should return variable name.") {
+                @include assert-equal(var.name($var), "--primary");
             }
         }
 
         @include describe("fallback()") {
-            @include it("Should return `var()` fallback value.") {
-                @include assert-equal(var.fallback(var(--primary, darkcyan)), "darkcyan");
+            @include it("Should return variable fallback.") {
+                @include assert-equal(var.fallback($var), "darkcyan");
+            }
+        }
+
+        @include describe("parse()") {
+            @include it("Should return a map with 'name' and 'fallback' keys.") {
+                @include assert-equal(var.parse($var), (
+                    "name": --primary,
+                    "fallback": darkcyan
+                ), $inspect: true);
             }
         }
     }
