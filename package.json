@@ -18,6 +18,7 @@
         "jest-environment-node-single-context": "^29.0.0",
         "jest-junit": "^15.0.0",
         "lerna": "^6.5.1",
+        "nx": "15.8.7",
         "sass": "^1.58.3",
         "sass-true": "^7.0.0",
         "stylelint": "^15.2.0",
