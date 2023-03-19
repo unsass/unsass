@@ -51,7 +51,8 @@ This function will return variable name value.
 ```scss
 @use "@unsass/var";
 
-$name: var.name(var(--primary-color, darkcyan)); // $name: "--primary-color";
+$var: var(--primary-color, darkcyan);
+$name: var.name($var); // $name: "--primary-color";
 ```
 
 ### `fallback($var)`
@@ -61,7 +62,8 @@ This function will return variable fallback value.
 ```scss
 @use "@unsass/var";
 
-$fallback: var.fallback(var(--primary-color, darkcyan)); // $name: "darkcyan";
+$var: var(--primary-color, darkcyan);
+$fallback: var.fallback($var); // $fallback: "darkcyan";
 ```
 
 ### `parse($var)`
@@ -71,5 +73,6 @@ This function will return a map with variable name and fallback values on dedica
 ```scss
 @use "@unsass/var";
 
-$var: var.parse(var(--primary-color, darkcyan)); // $var: ("name": --primary-color, "fallback": darkcyan);
+$var: var(--primary-color, darkcyan);
+$map: var.parse($var); // $map: ("name": --primary-color, "fallback": darkcyan);
 ```
