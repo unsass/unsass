@@ -65,7 +65,7 @@
 ///
 /// @param {String} $var - The variable value.
 ///
-/// @return {String} The `var()` name.
+/// @return {String} The variable name.
 ///
 @function name($var) {
     $var: parse($var);
@@ -78,7 +78,7 @@
 ///
 /// @param {String} $var - The variable value.
 ///
-/// @return {String} The `var()` fallback.
+/// @return {String} The variable fallback.
 ///
 @function fallback($var) {
     $var: parse($var);
