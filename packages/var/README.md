@@ -1,4 +1,4 @@
-# `@unsass/var`
+# Var
 
 [![Version](https://flat.badgen.net/npm/v/@unsass/var)](https://www.npmjs.com/package/@unsass/var)
 [![Downloads](https://flat.badgen.net/npm/dt/@unsass/var)](https://www.npmjs.com/package/@unsass/var)

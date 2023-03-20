@@ -1,4 +1,4 @@
-# `@unsass/string`
+# String
 
 [![Version](https://flat.badgen.net/npm/v/@unsass/string)](https://www.npmjs.com/package/@unsass/string)
 [![Downloads](https://flat.badgen.net/npm/dt/@unsass/string)](https://www.npmjs.com/package/@unsass/string)
