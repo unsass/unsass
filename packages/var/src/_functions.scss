@@ -26,6 +26,10 @@
 @function create($name, $fallback: null) {
     $name: create-name($name);
 
+    @if $fallback == null {
+        @return var(#{$name});
+    }
+
     @return var(#{$name}, #{$fallback});
 }
 

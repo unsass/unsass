@@ -13,6 +13,10 @@ $var: var(--primary, darkcyan);
             @include it("Should return variable value.") {
                 @include assert-equal(var.create("primary", darkcyan), $var);
             }
+
+            @include it("Should return variable value without fallback.") {
+                @include assert-equal(var.create("primary"), var(--primary));
+            }
         }
 
         @include describe("create-name()") {
