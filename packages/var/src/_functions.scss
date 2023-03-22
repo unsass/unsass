@@ -30,7 +30,7 @@
         @return var(#{$name});
     }
 
-    @return var(#{$name}, #{$fallback});
+    @return var(#{$name}, $fallback);
 }
 
 ///
