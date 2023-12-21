@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Sass functions to manage the `var()` CSS function.
+Sass functions to manage and manipulate the `var()` CSS function.
 
 ## Installing
 
