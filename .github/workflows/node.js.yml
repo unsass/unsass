@@ -1,36 +1,29 @@
-name: Node.js CI
+name: Publish
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ "main", "develop" ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ "main", "develop" ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [ 18.x, 20.x ]
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          node-version: 20
 
       - name: Install Dependencies
         run: npm ci --ignore-scripts --no-audit
 
-      - name: Test
+      - name: Tests
         run: npm run test
 
-      - name: Test Reporter
-        uses: dorny/test-reporter@v1.6.0
+      - name: Tests Reporter
+        uses: dorny/test-reporter@v1
         with:
           name: JEST Tests
           path: junit.xml
