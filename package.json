@@ -4,28 +4,25 @@
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
         "lint": "npm-run-all --parallel lint:*",
-        "test": "jest",
-        "prepare": "husky install",
+        "test": "vitest",
+        "prepare": "husky",
         "release": "lerna publish"
     },
     "engines": {
-        "node": ">=18.0.0"
+        "node": ">=18"
     },
     "devDependencies": {
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
-        "glob": "^7.2.3",
         "husky": "^9.1.7",
-        "jest": "^29.5.0",
-        "jest-environment-node-single-context": "^29.4.0",
-        "jest-junit": "^16.0.0",
         "lerna": "^6.5.1",
         "npm-run-all": "^4.1.5",
         "nx": "15.8.7",
         "sass": "^1.58.3",
         "sass-true": "^8.1.0",
         "stylelint": "^16.20.0",
-        "stylelint-config-unsass": "^2.0.0"
+        "stylelint-config-unsass": "^2.0.0",
+        "vitest": "^3.2.3"
     },
     "repository": {
         "type": "git",
