@@ -1,13 +1,14 @@
 {
     "version": "independent",
-    "useNx": true,
     "command": {
         "publish": {
             "message": "chore(release): publish",
             "ignoreChanges": [
-                "**/*.md",
-                "**/.github/*",
-                "**/__tests__/*"
+                "*.md",
+                "**/.github/**",
+                "**/__tests__/**",
+                "**/test/**",
+                "**/ci/**"
             ]
         },
         "version": {
