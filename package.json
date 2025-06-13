@@ -6,7 +6,7 @@
         "lint": "npm-run-all --parallel lint:*",
         "test": "vitest",
         "prepare": "husky",
-        "release": "lerna publish"
+        "release": "lerna publish --create-release github"
     },
     "engines": {
         "node": ">=18"
