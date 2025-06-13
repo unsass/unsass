@@ -1,6 +1,5 @@
 {
     "version": "independent",
-    "useWorkspaces": true,
     "useNx": true,
     "command": {
         "publish": {
@@ -14,9 +13,7 @@
         "version": {
             "allowBranch": "main",
             "conventionalCommits": true,
-            "changelogPreset": {
-                "name": "conventionalcommits"
-            }
+            "changelogPreset": "conventionalcommits"
         }
     },
     "$schema": "node_modules/lerna/schemas/lerna-schema.json"

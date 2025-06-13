@@ -5,4 +5,5 @@ junit.xml
 
 ## Folders
 /.idea
+/.nx
 /node_modules
