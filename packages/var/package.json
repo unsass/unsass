@@ -1,10 +1,10 @@
 {
     "name": "@unsass/var",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Sass functions to manage the `var()` CSS function.",
     "sass": "index.scss",
     "dependencies": {
-        "@unsass/string": "^1.4.3",
+        "@unsass/string": "^1.4.4",
         "sass": "^1.58.3"
     },
     "keywords": [

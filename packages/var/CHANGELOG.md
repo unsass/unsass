@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/unsass/unsass/compare/@unsass/var@1.0.2...@unsass/var@1.0.3) (2025-06-13)
+
+
+### Bug Fixes
+
+* **string, var:** lint code ([2f7595c](https://github.com/unsass/unsass/commit/2f7595c3915bd144286297afafc73262e22c49f0))
+
+
+
 ## [1.0.2](https://github.com/unsass/unsass/compare/@unsass/var@1.0.1...@unsass/var@1.0.2) (2023-03-22)
 
 

@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/unsass/unsass/compare/@unsass/string@1.4.3...@unsass/string@1.4.4) (2025-06-13)
+
+
+### Bug Fixes
+
+* **string, var:** lint code ([2f7595c](https://github.com/unsass/unsass/commit/2f7595c3915bd144286297afafc73262e22c49f0))
+
+
+
 ## [1.4.3](https://github.com/unsass/unsass/compare/@unsass/string@1.4.2...@unsass/string@1.4.3) (2023-03-21)
 
 **Note:** Version bump only for package @unsass/string
