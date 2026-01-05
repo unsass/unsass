@@ -2,6 +2,7 @@
 //                                             TEST                                              //
 // ============================================================================================= //
 
+@use "sass:map";
 @use "true" as *;
 @use "../index" as var;
 
@@ -39,10 +40,10 @@ $var: var(--primary, darkcyan);
 
         @include describe("parse()") {
             @include it("Should return a map with 'name' and 'fallback' keys.") {
-                @include assert-equal(var.parse($var), (
-                    "name": --primary,
-                    "fallback": darkcyan
-                ), $inspect: true);
+                $result: var.parse($var);
+
+                @include assert-equal(map.get($result, "name"), --primary);
+                @include assert-equal(map.get($result, "fallback"), "darkcyan");
             }
         }
     }
