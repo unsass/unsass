@@ -12,8 +12,16 @@
                 @include assert-equal(types.is-number(1), true);
             }
 
+            @include it("Should return true with unit.") {
+                @include assert-equal(types.is-number(12px), true);
+            }
+
             @include it("Should return false.") {
                 @include assert-equal(types.is-number("1"), false);
+            }
+
+            @include it("Should return false with null.") {
+                @include assert-equal(types.is-number(null), false);
             }
         }
 
@@ -24,6 +32,10 @@
 
             @include it("Should return true without quotes.") {
                 @include assert-equal(types.is-string(a), true);
+            }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-string(1), false);
             }
         }
 
@@ -58,6 +70,16 @@
                     "value-2"
                 )), true);
             }
+
+            @include it("Should return true with a space-separated list.") {
+                @include assert-equal(types.is-list(1px 2px), true);
+            }
+
+            @include it("Should return false with a map.") {
+                @include assert-equal(types.is-list((
+                    "key": "value"
+                )), false);
+            }
         }
 
         @include describe("is-map()") {
@@ -70,6 +92,10 @@
             @include it("Should return false.") {
                 @include assert-equal(types.is-map(()), false);
             }
+
+            @include it("Should return false with a list.") {
+                @include assert-equal(types.is-map((1, 2)), false);
+            }
         }
 
         @include describe("is-boolean()") {
@@ -80,6 +106,18 @@
             @include it("Should return true when false.") {
                 @include assert-equal(types.is-boolean(false), true);
             }
+
+            @include it("Should return false.") {
+                @include assert-equal(types.is-boolean(1), false);
+            }
+
+            @include it("Should return false with a string.") {
+                @include assert-equal(types.is-boolean("true"), false);
+            }
+
+            @include it("Should return false with null.") {
+                @include assert-equal(types.is-boolean(null), false);
+            }
         }
 
         @include describe("is-null()") {
@@ -88,7 +126,15 @@
             }
 
             @include it("Should return false.") {
-                @include assert-equal(types.is-boolean(1), false);
+                @include assert-equal(types.is-null(1), false);
+            }
+
+            @include it("Should return false with false.") {
+                @include assert-equal(types.is-null(false), false);
+            }
+
+            @include it("Should return false with an empty string.") {
+                @include assert-equal(types.is-null(""), false);
             }
         }
     }

@@ -14,11 +14,23 @@
         @include it("Should return removed string.") {
             @include assert-equal(string.replace("The quick brown fox jumps over the lazy dog. If the dog reacted, was it really lazy?", "dog"), "The quick brown fox jumps over the lazy . If the  reacted, was it really lazy?");
         }
+
+        @include it("Should return the string unchanged when the query is not found.") {
+            @include assert-equal(string.replace("foo bar", "baz", "x"), "foo bar");
+        }
+
+        @include it("Should replace a multi-character query.") {
+            @include assert-equal(string.replace("a--b--c", "--", "_"), "a_b_c");
+        }
     }
 
     @include describe("to-number()") {
         @include it("Should return a number from string.") {
             @include assert-equal(string.to-number("6"), 6);
+        }
+
+        @include it("Should return zero from string.") {
+            @include assert-equal(string.to-number("0"), 0);
         }
 
         @include it("Should return a two digit number from string.") {
@@ -28,11 +40,23 @@
         @include it("Should return a big number from string.") {
             @include assert-equal(string.to-number("1997"), 1997);
         }
+
+        @include it("Should ignore leading zeros.") {
+            @include assert-equal(string.to-number("007"), 7);
+        }
     }
 
     @include describe("from-number()") {
         @include it("Should return a string from number.") {
             @include assert-equal(string.from-number(6), "6");
+        }
+
+        @include it("Should return a string from decimal number.") {
+            @include assert-equal(string.from-number(1.5), "1.5");
+        }
+
+        @include it("Should keep the unit.") {
+            @include assert-equal(string.from-number(10px), "10px");
         }
     }
 
@@ -46,6 +70,16 @@
         @include describe("custom") {
             @include it("Should return a string without custom start value.") {
                 @include assert-equal(string.trim-start("var(--foo, darkcyan)", "var("), "--foo, darkcyan)");
+            }
+
+            @include it("Should return the string unchanged when it does not start with the target.") {
+                @include assert-equal(string.trim-start("foo", "--"), "foo");
+            }
+        }
+
+        @include describe("once") {
+            @include it("Should only remove one leading occurrence.") {
+                @include assert-equal(string.trim-start("  foo"), " foo");
             }
         }
     }
@@ -61,6 +95,16 @@
             @include it("Should return a string without custom end value.") {
                 @include assert-equal(string.trim-end("var(--foo, darkcyan)", ")"), "var(--foo, darkcyan");
             }
+
+            @include it("Should return the string unchanged when it does not end with the target.") {
+                @include assert-equal(string.trim-end("foo", "--"), "foo");
+            }
+        }
+
+        @include describe("once") {
+            @include it("Should only remove one trailing occurrence.") {
+                @include assert-equal(string.trim-end("foo  "), "foo ");
+            }
         }
     }
 
@@ -75,6 +119,14 @@
             @include it("Should return a string without whitespace.") {
                 @include assert-equal(string.trim("var(--foo, darkcyan)", "var(", ")"), "--foo, darkcyan");
             }
+
+            @include it("Should use the start value as end value by default.") {
+                @include assert-equal(string.trim("**foo**", "**"), "foo");
+            }
+
+            @include it("Should return the string unchanged when there is nothing to trim.") {
+                @include assert-equal(string.trim("foo"), "foo");
+            }
         }
     }
 
@@ -82,6 +134,10 @@
         @include describe("true") {
             @include it("Should return true.") {
                 @include assert-equal(string.starts-with("This is a sentence.", "This"), true);
+            }
+
+            @include it("Should return true when the substring is the whole string.") {
+                @include assert-equal(string.starts-with("foo", "foo"), true);
             }
         }
 
@@ -97,11 +153,19 @@
             @include it("Should return true.") {
                 @include assert-equal(string.ends-with("This is a sentence.", "ence."), true);
             }
+
+            @include it("Should return true when the substring is the whole string.") {
+                @include assert-equal(string.ends-with("foo", "foo"), true);
+            }
         }
 
         @include describe("false") {
             @include it("Should return false.") {
                 @include assert-equal(string.ends-with("This is a sentence.", "ence"), false);
+            }
+
+            @include it("Should return false when the substring is longer than the string.") {
+                @include assert-equal(string.ends-with("ab", "abcd"), false);
             }
         }
     }
@@ -113,6 +177,18 @@
 
         @include it("Should ignore falsy values.") {
             @include assert-equal(string.combine("button", null, "label", false), "button-label");
+        }
+
+        @include it("Should return a single string as is.") {
+            @include assert-equal(string.combine("button"), "button");
+        }
+
+        @include it("Should combine more than two strings.") {
+            @include assert-equal(string.combine("a", "b", "c"), "a-b-c");
+        }
+
+        @include it("Should return an empty string with falsy values only.") {
+            @include assert-equal(string.combine(null, false), "");
         }
 
         @include it("Should return an empty string without value.") {

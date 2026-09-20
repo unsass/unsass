@@ -18,6 +18,14 @@ $var: var(--primary, darkcyan);
             @include it("Should return variable value without fallback.") {
                 @include assert-equal(var.create("primary"), var(--primary));
             }
+
+            @include it("Should keep an existing `--` prefix.") {
+                @include assert-equal(var.create("--primary", darkcyan), $var);
+            }
+
+            @include it("Should accept a fallback with unit.") {
+                @include assert-equal(var.create("gap", 8px), var(--gap, 8px));
+            }
         }
 
         @include describe("create-name()") {
@@ -34,11 +42,19 @@ $var: var(--primary, darkcyan);
             @include it("Should return variable name.") {
                 @include assert-equal(var.name($var), "--primary");
             }
+
+            @include it("Should return variable name created without prefix.") {
+                @include assert-equal(var.name(var.create("primary", darkcyan)), "--primary");
+            }
         }
 
         @include describe("fallback()") {
             @include it("Should return variable fallback.") {
                 @include assert-equal(var.fallback($var), "darkcyan");
+            }
+
+            @include it("Should return a fallback containing commas.") {
+                @include assert-equal(var.fallback(var(--font, Helvetica, Arial)), "Helvetica, Arial");
             }
         }
 
