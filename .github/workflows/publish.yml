@@ -1,4 +1,4 @@
-name: Publish
+name: CI
 
 on:
   push:
@@ -6,25 +6,48 @@ on:
   pull_request:
     branches: [ "main", "develop" ]
 
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
 jobs:
   test:
+    name: Tests (Node ${{ matrix.node-version }})
     runs-on: ubuntu-latest
 
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [ 22, 24 ]
+
+    permissions:
+      contents: read
+      actions: read
+      checks: write
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Update npm
+        run: npm install -g npm@12
 
       - name: Install Dependencies
-        run: npm ci --ignore-scripts --no-audit
+        run: npm ci --no-audit
+        env:
+          HUSKY: 0
 
       - name: Tests
         run: npm run test
 
       - name: Tests Reporter
-        uses: dorny/test-reporter@v1
+        uses: dorny/test-reporter@v3
+        if: always()
         with:
-          name: Tests
+          name: Tests (Node ${{ matrix.node-version }})
           path: junit.xml
-          reporter: jest-junit
+          reporter: java-junit
