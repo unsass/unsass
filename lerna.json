@@ -14,7 +14,29 @@
         "version": {
             "allowBranch": "main",
             "conventionalCommits": true,
-            "changelogPreset": "conventionalcommits"
+            "changelogPreset": {
+                "name": "conventionalcommits",
+                "types": [
+                    {
+                        "type": "feat",
+                        "section": "Features"
+                    },
+                    {
+                        "type": "fix",
+                        "section": "Bug Fixes"
+                    },
+                    {
+                        "type": "chore",
+                        "scope": "deps",
+                        "section": "Dependencies"
+                    },
+                    {
+                        "type": "build",
+                        "scope": "deps",
+                        "section": "Dependencies"
+                    }
+                ]
+            }
         }
     },
     "$schema": "node_modules/lerna/schemas/lerna-schema.json"
