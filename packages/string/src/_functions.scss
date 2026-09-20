@@ -7,7 +7,23 @@
 @use "@unsass/types" as type;
 
 ///
-/// Replace.
+/// Replace every occurrence of a substring within a string.
+///
+/// @example - scss
+///   $string: string.replace("The quick brown fox jumps over the lazy dog.", "dog", "monkey");
+///   // "The quick brown fox jumps over the lazy monkey."
+///
+/// @example - scss
+///   $string: string.replace("foo-bar-baz", "-");
+///   // "foobarbaz"
+///
+/// @param {string} $string - The string to search in.
+/// @param {string} $query - The substring to replace.
+/// @param {string} $replace [""] - The replacement. Omit it to remove the substring.
+///
+/// @return {string} The string with every occurrence of `$query` replaced.
+///
+/// @access public
 ///
 @function replace($string, $query, $replace: "") {
     $index: string.index($string, $query);
@@ -20,7 +36,19 @@
 }
 
 ///
-/// To number.
+/// Convert a string of digits to a number.
+///
+/// @example - scss
+///   $number: string.to-number("42");
+///   // 42
+///
+/// @param {string} $value - A string made of digits only (`"0"` to `"9"`).
+///
+/// @return {number} The unitless integer value.
+///
+/// @see {function} from-number
+///
+/// @access public
 ///
 @function to-number($value) {
     $numbers: ("0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9);
@@ -35,14 +63,39 @@
 }
 
 ///
-/// From number.
+/// Convert a number to a string.
+///
+/// @example - scss
+///   $string: string.from-number(10);
+///   // "10"
+///
+/// @param {number} $value - The number to convert.
+///
+/// @return {string} The number as a string.
+///
+/// @see {function} to-number
+///
+/// @access public
 ///
 @function from-number($value) {
     @return #{$value};
 }
 
 ///
-/// Starts with.
+/// Check whether a string starts with a substring.
+///
+/// @example - scss
+///   $result: string.starts-with("button-label", "button");
+///   // true
+///
+/// @param {string} $string - The string to test.
+/// @param {string} $substring - The expected prefix.
+///
+/// @return {bool} `true` if the string starts with the substring, `false` otherwise.
+///
+/// @see {function} ends-with
+///
+/// @access public
 ///
 @function starts-with($string, $substring) {
     @if string.index($string, $substring) {
@@ -53,7 +106,20 @@
 }
 
 ///
-/// Ends with.
+/// Check whether a string ends with a substring.
+///
+/// @example - scss
+///   $result: string.ends-with("button-label", "label");
+///   // true
+///
+/// @param {string} $string - The string to test.
+/// @param {string} $substring - The expected suffix.
+///
+/// @return {bool} `true` if the string ends with the substring, `false` otherwise.
+///
+/// @see {function} starts-with
+///
+/// @access public
 ///
 @function ends-with($string, $substring) {
     @if (string.slice($string, (string.length($string) - string.length($substring) + 1)) == $substring) {
@@ -64,7 +130,21 @@
 }
 
 ///
-/// Trim start.
+/// Remove one leading occurrence of a target from a string.
+///
+/// @example - scss
+///   $string: string.trim-start("--primary-color", "--");
+///   // "primary-color"
+///
+/// @param {string} $string - The string to trim.
+/// @param {string} $target [" "] - The leading target to remove.
+///
+/// @return {string} The string without its leading target.
+///
+/// @see {function} trim-end
+/// @see {function} trim
+///
+/// @access public
 ///
 @function trim-start($string, $target: " ") {
     @if string.slice($string, 1, string.length($target)) == $target {
@@ -75,7 +155,21 @@
 }
 
 ///
-/// Trim end.
+/// Remove one trailing occurrence of a target from a string.
+///
+/// @example - scss
+///   $string: string.trim-end("primary-color--", "--");
+///   // "primary-color"
+///
+/// @param {string} $string - The string to trim.
+/// @param {string} $target [" "] - The trailing target to remove.
+///
+/// @return {string} The string without its trailing target.
+///
+/// @see {function} trim-start
+/// @see {function} trim
+///
+/// @access public
 ///
 @function trim-end($string, $target: " ") {
     @if string.slice($string, -1 * string.length($target)) == $target {
@@ -86,14 +180,47 @@
 }
 
 ///
-/// Trim.
+/// Remove one leading and one trailing occurrence of a target from a string.
+///
+/// @example - scss
+///   $string: string.trim(" foo ");
+///   // "foo"
+///
+/// @example - scss
+///   $string: string.trim("var(--primary-color)", "var(", ")");
+///   // "--primary-color"
+///
+/// @param {string} $string - The string to trim.
+/// @param {string} $start [" "] - The leading target to remove.
+/// @param {string} $end [$start] - The trailing target to remove.
+///
+/// @return {string} The trimmed string.
+///
+/// @see {function} trim-start
+/// @see {function} trim-end
+///
+/// @access public
 ///
 @function trim($string, $start: " ", $end: $start) {
     @return trim-start(trim-end($string, $end), $start);
 }
 
 ///
-/// Combine.
+/// Join strings with a dash, skipping falsy values.
+///
+/// @example - scss
+///   $string: string.combine("button", "label");
+///   // "button-label"
+///
+/// @example - scss
+///   $string: string.combine("button", null, "label");
+///   // "button-label"
+///
+/// @param {arglist} $values - The strings to join. Falsy values (`null`, `false`) are ignored.
+///
+/// @return {string} The joined string, or `""` if there is nothing to join.
+///
+/// @access public
 ///
 @function combine($values...) {
     $token: "";

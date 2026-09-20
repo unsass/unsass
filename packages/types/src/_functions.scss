@@ -5,49 +5,119 @@
 @use "sass:meta";
 
 ///
-/// Number.
+/// Check whether a value is a number.
+///
+/// @example - scss
+///   $result: types.is-number(12px);
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is a number (with or without unit), `false` otherwise.
+///
+/// @access public
 ///
 @function is-number($value) {
     @return meta.type-of($value) == "number";
 }
 
 ///
-/// String.
+/// Check whether a value is a string.
+///
+/// @example - scss
+///   $result: types.is-string("foo");
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is a string (quoted or not), `false` otherwise.
+///
+/// @access public
 ///
 @function is-string($value) {
     @return meta.type-of($value) == "string";
 }
 
 ///
-/// Color.
+/// Check whether a value is a color.
+///
+/// @example - scss
+///   $result: types.is-color(darkcyan);
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is a color, `false` otherwise.
+///
+/// @access public
 ///
 @function is-color($value) {
     @return meta.type-of($value) == "color";
 }
 
 ///
-/// List.
+/// Check whether a value is a list.
+///
+/// @example - scss
+///   $result: types.is-list((1px, 2px, 3px));
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is a list, `false` otherwise.
+///
+/// @access public
 ///
 @function is-list($value) {
     @return meta.type-of($value) == "list";
 }
 
 ///
-/// Map.
+/// Check whether a value is a map.
+///
+/// @example - scss
+///   $result: types.is-map(("foo": "bar"));
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is a map, `false` otherwise.
+///
+/// @access public
 ///
 @function is-map($value) {
     @return meta.type-of($value) == "map";
 }
 
 ///
-/// Boolean.
+/// Check whether a value is a boolean.
+///
+/// @example - scss
+///   $result: types.is-boolean(false);
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is `true` or `false`, `false` otherwise.
+///
+/// @access public
 ///
 @function is-boolean($value) {
     @return meta.type-of($value) == "bool";
 }
 
 ///
-/// Null.
+/// Check whether a value is `null`.
+///
+/// @example - scss
+///   $result: types.is-null(null);
+///   // true
+///
+/// @param {*} $value - The value to test.
+///
+/// @return {bool} `true` if the value is `null`, `false` otherwise.
+///
+/// @access public
 ///
 @function is-null($value) {
     @return meta.type-of($value) == "null";

@@ -18,10 +18,14 @@
 ///     color: var(--primary-color, darkcyan);
 ///   }
 ///
-/// @param {String} $name - The variable name.
-/// @param {String} $fallback - The variable fallback.
+/// @param {string} $name - The variable name, with or without the leading `--`.
+/// @param {*} $fallback [null] - The variable fallback. Omit it to emit a `var()` without fallback.
 ///
-/// @return {String} The `var()`  CSS function.
+/// @return {string} The `var()` CSS function.
+///
+/// @see {function} create-name
+///
+/// @access public
 ///
 @function create($name, $fallback: null) {
     $name: create-name($name);
@@ -34,27 +38,21 @@
 }
 
 ///
-/// Create name.
+/// Create a custom property name, prefixing it with `--` if missing.
 ///
 /// @example - scss
-///   $theme: (
-///     "text-color": darkcyan
-///   );
+///   $name: var.create-name("primary-color");
+///   // "--primary-color"
 ///
-///   $theme: create-theme-vars($theme, "button"); -> `("text-color": var(--mg-button-text-color, darkcyan))`
+/// @example - scss
+///   $name: var.create-name("--primary-color");
+///   // "--primary-color"
 ///
-///   .foo {
-///     @include emit-theme-vars($theme);
-///   }
+/// @param {string} $name - The variable name, with or without the leading `--`.
 ///
-/// @example - css
-///   .foo {
-///     --mg-button-text-color: darkcyan;
-///   }
+/// @return {string} The name prefixed with `--`.
 ///
-/// @param {String} $name - The variable name value.
-///
-/// @return {String} The formatted name.
+/// @access public
 ///
 @function create-name($name) {
     @if string.slice($name, 1, 2) != "--" {
@@ -65,11 +63,19 @@
 }
 
 ///
-/// Get name.
+/// Get the name of a `var()` CSS function.
 ///
-/// @param {String} $var - The variable value.
+/// @example - scss
+///   $name: var.name(var(--primary-color, darkcyan));
+///   // "--primary-color"
 ///
-/// @return {String} The variable name.
+/// @param {string} $var - The `var()` CSS function.
+///
+/// @return {string} The variable name.
+///
+/// @see {function} parse
+///
+/// @access public
 ///
 @function name($var) {
     $var: parse($var);
@@ -78,11 +84,19 @@
 }
 
 ///
-/// Get fallback.
+/// Get the fallback of a `var()` CSS function.
 ///
-/// @param {String} $var - The variable value.
+/// @example - scss
+///   $fallback: var.fallback(var(--primary-color, darkcyan));
+///   // "darkcyan"
 ///
-/// @return {String} The variable fallback.
+/// @param {string} $var - The `var()` CSS function.
+///
+/// @return {string} The variable fallback.
+///
+/// @see {function} parse
+///
+/// @access public
 ///
 @function fallback($var) {
     $var: parse($var);
@@ -91,11 +105,17 @@
 }
 
 ///
-/// Parsing `var()` CSS function.
+/// Parse a `var()` CSS function into its name and fallback.
 ///
-/// @param {String} $var - The variable value.
+/// @example - scss
+///   $map: var.parse(var(--primary-color, darkcyan));
+///   // ("name": "--primary-color", "fallback": "darkcyan")
 ///
-/// @return {Map} A map with `name` and `fallback` keys.
+/// @param {string} $var - The `var()` CSS function, with a fallback.
+///
+/// @return {map} A map with the `name` and `fallback` keys.
+///
+/// @access public
 ///
 @function parse($var) {
     $var: string.trim($var, "var(", ")");
