@@ -1,13 +1,13 @@
 {
     "name": "@unsass/string",
-    "version": "1.4.4",
+    "version": "1.5.0",
     "description": "Composable Sass functions to manipulate, search and trim strings.",
     "engines": {
         "node": ">=22"
     },
     "sass": "index.scss",
     "dependencies": {
-        "@unsass/types": "^1.0.3"
+        "@unsass/types": "^1.1.0"
     },
     "peerDependencies": {
         "sass": ">=1.95.0"
