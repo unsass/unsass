@@ -6,6 +6,7 @@
         "lint": "run-p \"lint:*\"",
         "test": "vitest",
         "prepare": "husky",
+        "version": "node scripts/format-changelogs.js",
         "release": "lerna publish --create-release github"
     },
     "engines": {
