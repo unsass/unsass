@@ -1,7 +1,7 @@
 {
     "name": "@unsass/types",
     "version": "1.0.3",
-    "description": "Sass functions to determine value type.",
+    "description": "Sass functions to check the type of a value.",
     "engines": {
         "node": ">=22"
     },

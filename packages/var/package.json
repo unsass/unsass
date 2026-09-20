@@ -1,7 +1,7 @@
 {
     "name": "@unsass/var",
     "version": "1.0.3",
-    "description": "Sass functions to manage the `var()` CSS function.",
+    "description": "Sass functions to create, read and parse the `var()` CSS function.",
     "engines": {
         "node": ">=22"
     },

@@ -1,7 +1,7 @@
 {
     "name": "@unsass/string",
     "version": "1.4.4",
-    "description": "Sass functions to manage string.",
+    "description": "Composable Sass functions to manipulate, search and trim strings.",
     "engines": {
         "node": ">=22"
     },
