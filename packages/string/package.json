@@ -2,6 +2,9 @@
     "name": "@unsass/string",
     "version": "1.4.4",
     "description": "Sass functions to manage string.",
+    "engines": {
+        "node": ">=22"
+    },
     "sass": "index.scss",
     "dependencies": {
         "@unsass/types": "^1.0.3"

@@ -2,6 +2,9 @@
     "name": "@unsass/var",
     "version": "1.0.3",
     "description": "Sass functions to manage the `var()` CSS function.",
+    "engines": {
+        "node": ">=22"
+    },
     "sass": "index.scss",
     "dependencies": {
         "@unsass/string": "^1.4.4"

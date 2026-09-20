@@ -2,6 +2,9 @@
     "name": "@unsass/types",
     "version": "1.0.3",
     "description": "Sass functions to determine value type.",
+    "engines": {
+        "node": ">=22"
+    },
     "sass": "index.scss",
     "peerDependencies": {
         "sass": ">=1.95.0"
