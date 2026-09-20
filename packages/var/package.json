@@ -7,7 +7,7 @@
         "@unsass/string": "^1.4.4"
     },
     "peerDependencies": {
-        "sass": ">=1.58.3"
+        "sass": ">=1.95.0"
     },
     "keywords": [
         "sass",
