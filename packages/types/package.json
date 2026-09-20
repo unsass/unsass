@@ -3,15 +3,17 @@
     "version": "1.0.3",
     "description": "Sass functions to determine value type.",
     "sass": "index.scss",
-    "dependencies": {
-        "sass": "^1.58.3"
+    "peerDependencies": {
+        "sass": ">=1.58.3"
     },
     "keywords": [
         "sass",
+        "scss",
         "types",
         "unsass",
         "front-end"
     ],
+    "author": "Front Factory",
     "license": "MIT",
     "homepage": "https://github.com/unsass/unsass/tree/main/packages/types#readme",
     "bugs": {

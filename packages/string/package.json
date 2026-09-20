@@ -4,17 +4,21 @@
     "description": "Sass functions to manage string.",
     "sass": "index.scss",
     "dependencies": {
-        "@unsass/types": "^1.0.3",
-        "sass": "^1.58.3"
+        "@unsass/types": "^1.0.3"
+    },
+    "peerDependencies": {
+        "sass": ">=1.58.3"
     },
     "keywords": [
         "sass",
+        "scss",
         "string",
         "replace",
         "number",
         "unsass",
         "front-end"
     ],
+    "author": "Front Factory",
     "license": "MIT",
     "homepage": "https://github.com/unsass/unsass/tree/main/packages/string#readme",
     "bugs": {

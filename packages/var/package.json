@@ -4,15 +4,19 @@
     "description": "Sass functions to manage the `var()` CSS function.",
     "sass": "index.scss",
     "dependencies": {
-        "@unsass/string": "^1.4.4",
-        "sass": "^1.58.3"
+        "@unsass/string": "^1.4.4"
+    },
+    "peerDependencies": {
+        "sass": ">=1.58.3"
     },
     "keywords": [
         "sass",
+        "scss",
         "var",
         "unsass",
         "front-end"
     ],
+    "author": "Front Factory",
     "license": "MIT",
     "homepage": "https://github.com/unsass/unsass/tree/main/packages/var#readme",
     "bugs": {
