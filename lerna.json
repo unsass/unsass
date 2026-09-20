@@ -15,7 +15,7 @@
             "allowBranch": "main",
             "conventionalCommits": true,
             "changelogPreset": {
-                "name": "conventionalcommits",
+                "name": "./changelog-preset.js",
                 "types": [
                     {
                         "type": "feat",
