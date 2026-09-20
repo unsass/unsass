@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "lint:css": "stylelint --fix \"**/*.scss\"",
-        "lint": "npm-run-all --parallel lint:*",
+        "lint": "run-p \"lint:*\"",
         "test": "vitest",
         "prepare": "husky",
         "release": "lerna publish --create-release github"
@@ -17,7 +17,7 @@
         "conventional-changelog-conventionalcommits": "^9.3.1",
         "husky": "^9.1.7",
         "lerna": "^10.0.1",
-        "npm-run-all": "^4.1.5",
+        "npm-run-all2": "^9.0.3",
         "sass": "^1.104.1",
         "sass-true": "^10.1.0",
         "stylelint": "^16.26.1",
