@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="100%" style="display:block">
+    <defs>
+        <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse">
+            <circle cx="0.8" cy="0.8" r="0.7" fill="#fff" opacity="0.04"/>
+        </pattern>
+        <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#0b5d58"/>
+            <stop offset="0.5" stop-color="#129b95"/>
+            <stop offset="1" stop-color="#1ad1cb"/>
+        </linearGradient>
+        <clipPath id="frame">
+            <rect width="800" height="360"/>
+        </clipPath>
+    </defs>
+
+    <!-- content clipped to the square frame so the top bar stays within bounds -->
+    <g clip-path="url(#frame)">
+        <rect width="800" height="360" fill="#101a24"/>
+        <rect width="800" height="360" fill="url(#dots)"/>
+        <rect width="800" height="2.5" fill="url(#bar)" opacity="0.95"/>
+
+        <!-- var() custom property icon -->
+        <g transform="translate(400, 46)" fill="none" stroke="#1ad1cb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M-14 -16Q-24 0 -14 16" opacity="0.7"/>
+            <path d="M14 -16Q24 0 14 16" opacity="0.7"/>
+            <line x1="-9" y1="0" x2="-3" y2="0"/>
+            <line x1="3" y1="0" x2="9" y2="0"/>
+        </g>
+
+        <!-- wordmark -->
+        <!-- "var" wordmark, outlined in Montserrat SemiBold -->
+        <path fill="#eeeeee"
+              d="M387.76 105L384.54 105L378.81 91.65L382.06 91.65L386.21 101.55L390.49 91.65L393.49 91.65M407.61 105L404.66 105L404.66 103.38Q404.19 104.08 403.41 104.53Q402.24 105.17 400.46 105.17Q398.96 105.17 397.84 104.66Q396.71 104.15 396.10 103.24Q395.49 102.33 395.49 101.17Q395.49 100.05 396.02 99.15Q396.56 98.25 397.79 97.72Q399.01 97.20 401.04 97.20L404.49 97.20L404.49 97Q404.49 95.63 403.66 94.86Q402.84 94.10 401.16 94.10Q400.04 94.10 398.95 94.45Q397.86 94.80 397.11 95.42L395.89 93.15Q396.96 92.33 398.45 91.91Q399.94 91.50 401.54 91.50Q404.44 91.50 406.02 92.89Q407.61 94.28 407.61 97.17L407.61 105M404.49 100.83L404.49 99.28L401.26 99.28Q399.66 99.28 399.11 99.79Q398.56 100.30 398.56 101.05Q398.56 101.90 399.24 102.40Q399.91 102.90 401.11 102.90Q402.26 102.90 403.18 102.38Q404.09 101.85 404.49 100.83M415.74 105L412.61 105L412.61 91.65L415.59 91.65L415.59 93.60Q416.16 92.72 417.14 92.20Q418.41 91.50 420.34 91.50L420.34 94.47Q420.14 94.42 419.96 94.41Q419.79 94.40 419.61 94.40Q417.84 94.40 416.79 95.44Q415.74 96.47 415.74 98.53"/>
+        <text x="400" y="127" text-anchor="middle" font-family="ui-monospace,Menlo,monospace" font-size="11"
+              fill="#1ad1cb" opacity="0.8">Sass functions to manage the var() CSS function</text>
+
+        <!-- code mockup: install + use -->
+        <rect x="130" y="152" width="540" height="168" rx="10" fill="#0c141d" stroke="#243341"/>
+        <rect x="130" y="152" width="540" height="28" rx="10" fill="#16212c"/>
+        <rect x="130" y="170" width="540" height="10" fill="#16212c"/>
+        <line x1="130" y1="180" x2="670" y2="180" stroke="#243341" stroke-width="0.75"/>
+        <circle cx="152" cy="166" r="4.5" fill="#ff5f57"/>
+        <circle cx="168" cy="166" r="4.5" fill="#febc2e"/>
+        <circle cx="184" cy="166" r="4.5" fill="#28c840"/>
+
+        <g font-family="ui-monospace,Menlo,monospace" font-size="13">
+            <text x="150" y="210"><tspan fill="#1ad1cb">@use </tspan><tspan fill="#7fd88f">"@unsass/var"</tspan><tspan fill="#c8d0d4">;</tspan></text>
+            <text x="150" y="254"><tspan fill="#c8d0d4">.foo {</tspan></text>
+            <text x="174" y="276"><tspan fill="#82aaff">color</tspan><tspan fill="#c8d0d4">: var.create(</tspan><tspan fill="#7fd88f">"primary-color"</tspan><tspan fill="#c8d0d4">, </tspan><tspan fill="#e0a973">darkcyan</tspan><tspan fill="#c8d0d4">);</tspan></text>
+            <text x="150" y="298"><tspan fill="#c8d0d4">}</tspan></text>
+        </g>
+    </g>
+
+    <!-- crisp square border drawn on top, aligned with the clipped fill -->
+    <rect x="0.5" y="0.5" width="799" height="359" fill="none" stroke="#2a3a47"/>
+</svg>

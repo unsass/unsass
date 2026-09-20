@@ -6,7 +6,14 @@
 
 ## Introduction
 
-Sass functions to manage and manipulate the `var()` CSS function.
+A small Sass toolkit for working with the `var()` CSS function. Create `var()` calls with an optional fallback, then read
+their name and fallback back with concise, composable functions so custom-property logic stays readable and consistent.
+
+<div align="center">
+
+![Var](.github/banner.svg)
+
+</div>
 
 ## Installing
 
@@ -20,59 +27,76 @@ npm install @unsass/var
 @use "@unsass/var";
 
 .foo {
-  color: var.create("primary-color", darkcyan);
+    color: var.create("primary-color", darkcyan);
 }
 ```
 
-### Result
-
 ```css
 .foo {
-  color: var(--primary-color, darkcyan);
+    color: var(--primary-color, darkcyan);
 }
 ```
 
 ## Functions
 
-### `create-name($name)`
+### `create($name, $fallback)`
 
-This function will return string value with `--` if missing.
+Creates a `var()` CSS function. The `--` prefix is added to `$name` when missing, and `$fallback` is optional.
 
 ```scss
 @use "@unsass/var";
 
-$name: var.create-name("primary-color"); // $name: "--primary-color";
+.foo {
+    color: var.create("primary-color", darkcyan);
+    background: var.create("--surface");
+}
+```
+
+```css
+.foo {
+    color: var(--primary-color, darkcyan);
+    background: var(--surface);
+}
+```
+
+### `create-name($name)`
+
+Returns the custom property name, prefixed with `--` if missing.
+
+```scss
+@use "@unsass/var";
+
+$name: var.create-name("primary-color"); // "--primary-color"
 ```
 
 ### `name($var)`
 
-This function will return variable name value.
+Returns the name of a `var()` function.
 
 ```scss
 @use "@unsass/var";
 
-$var: var(--primary-color, darkcyan);
-$name: var.name($var); // $name: "--primary-color";
+$name: var.name(var(--primary-color, darkcyan)); // "--primary-color"
 ```
 
 ### `fallback($var)`
 
-This function will return variable fallback value.
+Returns the fallback of a `var()` function.
 
 ```scss
 @use "@unsass/var";
 
-$var: var(--primary-color, darkcyan);
-$fallback: var.fallback($var); // $fallback: "darkcyan";
+$fallback: var.fallback(var(--primary-color, darkcyan)); // "darkcyan"
 ```
 
 ### `parse($var)`
 
-This function will return a map with variable name and fallback values on dedicated keys.
+Returns a map with the `name` and `fallback` keys of a `var()` function.
 
 ```scss
 @use "@unsass/var";
 
-$var: var(--primary-color, darkcyan);
-$map: var.parse($var); // $map: ("name": --primary-color, "fallback": darkcyan);
+$map: var.parse(var(--primary-color, darkcyan)); // ("name": "--primary-color", "fallback": "darkcyan")
 ```
+
+`name()`, `fallback()` and `parse()` expect a `var()` function that has a fallback.
