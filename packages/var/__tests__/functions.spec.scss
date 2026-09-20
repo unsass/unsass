@@ -24,6 +24,10 @@ $var: var(--primary, darkcyan);
             @include it("Should return variable name with `--` prefix.") {
                 @include assert-equal(var.create-name("primary"), "--primary");
             }
+
+            @include it("Should keep an existing `--` prefix.") {
+                @include assert-equal(var.create-name("--primary"), "--primary");
+            }
         }
 
         @include describe("name()") {

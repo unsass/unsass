@@ -110,5 +110,13 @@
         @include it("Should return combined string.") {
             @include assert-equal(string.combine("button", "label"), "button-label");
         }
+
+        @include it("Should ignore falsy values.") {
+            @include assert-equal(string.combine("button", null, "label", false), "button-label");
+        }
+
+        @include it("Should return an empty string without value.") {
+            @include assert-equal(string.combine(), "");
+        }
     }
 }
